@@ -1,0 +1,30 @@
+server:
+  port: 9001
+
+spring:
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+  profiles:
+    active: local
+  main:
+    allow-circular-references: true
+    allow-bean-definition-overriding: true
+  mail:
+    host: smtp.mailplug.co.kr
+    port: 465
+    protocol: smtp
+    username: starruckus_blue@emotiv.kr
+    password: email123!
+    properties:
+      debug: true
+      smtp.ssl.enable: true
+      mail.smtp.auth: false
+      mail.smtp.starttls.enable: true
+
+## Swagger
+springfox:
+  documentation:
+    swagger:
+      v2:
+        use-model-v3: false

@@ -1,0 +1,55 @@
+# Spring Setting
+spring:
+  config:
+    activate:
+      on-profile: local
+  database:
+    datasource:
+      hikari:
+        driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+        jdbc-url: jdbc:log4jdbc:mysql://emotiv-blue-enter-dev.czz449rkhvcg.ap-northeast-2.rds.amazonaws.com:3306/StarRuckusBlueEnter
+        username: admin
+        password: emotiv1123!
+  log:
+    datasource:
+      hikari:
+        driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+        jdbc-url: jdbc:log4jdbc:mysql://emotiv-blue-enter-dev.czz449rkhvcg.ap-northeast-2.rds.amazonaws.com:3306/StarRuckusBlueEnter_Log
+        username: admin
+        password: emotiv1123!
+  security:
+    jwt:
+      secret-key: VlwEyVBsYt9V7zq57TejMnVUyzblYcfPQye08f7MGVA9XkHa
+      algorithm: HS256
+      access-token-expired-time: 1209600000  # 2시간
+      refresh-token-expired-time: 1209600000 # 2주
+      grant-type: Bearer
+
+## Logger
+logging:
+  config: classpath:logback/logback-local.xml
+
+## CORS
+cors:
+  allowed-origins:
+    http://localhost:9001
+
+
+## Application
+application:
+  host: https://docs.google.com/spreadsheets/d/1E3sf6te_1xtHkpNEUfFXhFoPWpaVVBoVWbFhK-xe4W0/edit?usp=sharing
+  license: StarRuckus Blue Enterprise API Documents
+  version: v1.0.0
+  title: 조이코그 운영툴 API (local)
+  description: <Server Engineer - 김두연, 김기현, 김윤정> <Client Engineer - 이원진, 김태우> <Front Engineer - 이윤승>
+  name: API 사용 문서
+  email: rpp0321@emotiv.kr
+
+## Swagger
+springfox:
+  documentation:
+    swagger-ui:
+      enabled: true
+    swagger:
+      v2:
+        use-model-v3: false
