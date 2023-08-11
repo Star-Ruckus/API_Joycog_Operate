@@ -1,10 +1,5 @@
-package com.emotiv.api.api_BlueEnter.api.actionLog.controller
 
-import ActionLogService
-import com.emotiv.api.api_BlueEnter.api.actionLog.model.LogAnonymousVo
-import com.emotiv.api.api_BlueEnter.api.actionLog.model.LogChildVo
 import com.emotiv.api.api_BlueEnter.api.actionLog.model.LogCodeEntity
-import com.emotiv.api.api_BlueEnter.api.actionLog.model.LogManagerVo
 import com.joycog.operate.common.api.controller.ResponseController
 import com.joycog.operate.common.api.model.ResponseData
 import io.swagger.annotations.ApiOperation
@@ -77,6 +72,20 @@ class ActionLogController @Autowired constructor(
     @PostMapping("/register/manager")
     fun managerLog(@Valid @RequestBody manager: LogManagerVo): ResponseEntity<ResponseData<Boolean>> {
         val result = actionLogService.insertLogManager(manager)
+        return getSuccessResponseEntity(result)
+    }
+
+    @Tag(name = "행동로그")
+    @ApiResponses(
+        ApiResponse(code = 200, message = "OK"),
+        ApiResponse(code = 403, message = "UNAUTHORIZED"),
+        ApiResponse(code = 404, message = "NOT FOUND"),
+        ApiResponse(code = 500, message = "INTERNAL SERVER ERROR")
+    )
+    @ApiOperation(value = "운영자", notes = "운영자유저의 행동로그를 남긴다.")
+    @PostMapping("/register/admin")
+    fun adminLog(@Valid @RequestBody admin: LogAdminVo): ResponseEntity<ResponseData<Boolean>> {
+        val result = actionLogService.insertLogAdmin(admin)
         return getSuccessResponseEntity(result)
     }
 
