@@ -1,0 +1,21 @@
+version: 0.0
+os: linux
+max_revisions: 2
+files:
+  - source: /
+    destination: /home/ubuntu/emotiv/server
+permissions:
+  - object: /
+    mode: 755
+    pattern: "**"
+    owner: root
+    group: root
+hooks:
+  BeforeInstall:
+    - location: server_clear.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: deploy.sh
+      timeout: 300
+      runas: root

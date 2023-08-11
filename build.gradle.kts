@@ -34,7 +34,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation")
 
     // MySQL Connector
-    implementation("mysql:mysql-connector-java:8.0.32")
+    implementation("mysql:mysql-connector-java:8.0.33")
 
     // Mybatis
     implementation("org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.1")

@@ -1,0 +1,30 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+  pre_build:
+    commands:
+      - echo Pre-Build completed on 'date'
+  build:
+    commands:
+      - echo Build Started on 'date'
+      - gradle --version
+      - sudo chmod 777 ./gradlew
+      - ./gradlew build -i
+  post_build:
+    commands:
+      - echo $(basename ./build/libs/*.jar)
+      - pwd
+
+artifacts:
+  files:
+    - build/libs/*.jar
+    - appspec.yml
+    - scripts/**
+  name: joycog-operate
+  discard-paths: yes
+  s3-prefix: build
+cache:
+  paths:
+    - '/root/.gradlew/caches/**/*'

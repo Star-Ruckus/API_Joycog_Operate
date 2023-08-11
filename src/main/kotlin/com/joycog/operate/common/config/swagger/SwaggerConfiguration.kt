@@ -67,30 +67,30 @@ class SwaggerConfiguration {
             .produces(getProduceContentTypes())
             .useDefaultResponseMessages(false)
             .apiInfo(this.documentInformation())
-            .securitySchemes(listOf(apiKey()))
-            .securityContexts(listOf(securityContext()))
+//            .securitySchemes(listOf(apiKey()))
+//            .securityContexts(listOf(securityContext()))
             .select()
             .apis(RequestHandlerSelectors.basePackage("com.joycog.operate"))
             .paths(PathSelectors.ant("/**"))
             .build()
     }
 
-    fun defaultAuth(): List<SecurityReference?>? {
-        val authorizationScope = AuthorizationScope("global", "accessEverything")
-        val authorizationScopes = arrayOfNulls<AuthorizationScope>(1)
-        authorizationScopes[0] = authorizationScope
-        return listOf(SecurityReference("JWT", authorizationScopes))
-    }
-
-    private fun apiKey(): ApiKey {
-        return ApiKey("JWT", "Authorization", "header")
-    }
-
-    private fun securityContext(): SecurityContext {
-        return SecurityContext.builder()
-            .securityReferences(defaultAuth())
-            .build()
-    }
+//    fun defaultAuth(): List<SecurityReference?>? {
+//        val authorizationScope = AuthorizationScope("global", "accessEverything")
+//        val authorizationScopes = arrayOfNulls<AuthorizationScope>(1)
+//        authorizationScopes[0] = authorizationScope
+//        return listOf(SecurityReference("JWT", authorizationScopes))
+//    }
+//
+//    private fun apiKey(): ApiKey {
+//        return ApiKey("JWT", "Authorization", "header")
+//    }
+//
+//    private fun securityContext(): SecurityContext {
+//        return SecurityContext.builder()
+//            .securityReferences(defaultAuth())
+//            .build()
+//    }
 
     private fun getConsumeContentTypes(): MutableSet<String> {
         val consumes: MutableSet<String> = mutableSetOf()
@@ -106,19 +106,19 @@ class SwaggerConfiguration {
     }
 
 
-    @Bean
-    fun swaggerVersionController(): Docket {
-        return Docket(DocumentationType.SWAGGER_2)
-            .groupName("00. 테스트")
-            .consumes(getConsumeContentTypes())
-            .produces(getProduceContentTypes())
-            .apiInfo(documentInformation()).select()
-            .apis(RequestHandlerSelectors.basePackage("com.joycog.operate.api.login"))
-            .paths(PathSelectors.any())
-            .build()
-            .useDefaultResponseMessages(false)
-            .securityContexts(Collections.singletonList(securityContext()))
-            .securitySchemes(listOf(apiKey()))
-    }
+//    @Bean
+//    fun swaggerVersionController(): Docket {
+//        return Docket(DocumentationType.SWAGGER_2)
+//            .groupName("00. 테스트")
+//            .consumes(getConsumeContentTypes())
+//            .produces(getProduceContentTypes())
+//            .apiInfo(documentInformation()).select()
+//            .apis(RequestHandlerSelectors.basePackage("com.joycog.operate.api.login"))
+//            .paths(PathSelectors.any())
+//            .build()
+//            .useDefaultResponseMessages(false)
+//            .securityContexts(Collections.singletonList(securityContext()))
+//            .securitySchemes(listOf(apiKey()))
+//    }
 
 }
