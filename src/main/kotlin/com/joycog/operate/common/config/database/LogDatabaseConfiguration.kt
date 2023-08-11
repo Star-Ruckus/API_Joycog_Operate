@@ -48,7 +48,7 @@ class LogDatabaseConfiguration {
         val sessionFactory = SqlSessionFactoryBean()
         sessionFactory.setDataSource(dataSource)
         sessionFactory.setTypeAliasesPackage("com.joycog.operate.common.api.model")
-        sessionFactory.setMapperLocations(*PathMatchingResourcePatternResolver().getResources("classpath:/mybatis/log/*.xml"))
+        sessionFactory.setMapperLocations(*PathMatchingResourcePatternResolver().getResources("classpath:/mybatis/actionLog/*.xml"))
         sessionFactory.vfs = SpringBootVFS::class.java
         return sessionFactory.`object`!!
     }

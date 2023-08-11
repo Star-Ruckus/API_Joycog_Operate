@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.joycog.operate.common.api.repository.ActionLogRepository">
+
+    <insert id="insertLogAdmin">
+        /**
+        관리자 행동로그 삽입
+        ActionLogMapper.xml
+        id = insertLogAdmin
+        */
+        INSERT INTO tb_log_admin (admin_id, log_code, result_code, value1, value2, value3)
+        VALUES (#{adminId}, #{logCode}, #{resultCode}, #{value1}, #{value2}, #{value3})
+    </insert>
+
+    <insert id="insertLogAnonymous">
+        /**
+        익명사용자 행동로그 삽입
+        ActionLogMapper.xml
+        id = insertLogAnonymous
+        */
+        INSERT INTO tb_log_anonymous (anonymous_access, log_code, result_code, value1, value2)
+        VALUES (#{anonymousAccess}, #{logCode}, #{resultCode}, #{value1}, #{value2})
+    </insert>
+
+    <insert id="insertLogChild">
+        /**
+        아동 행동로그 삽입
+        ActionLogMapper.xml
+        id = insertLogChild
+        */
+        INSERT INTO tb_log_child (child_id, guardian_id, log_code, result_code, gold, dia, screening, value1, value2,
+                                  value3, value4, value5)
+        VALUES (#{childId}, #{guardianId}, #{logCode}, #{resultCode}, #{gold}, #{dia}, #{screening}, #{value1},
+                #{value2}, #{value3}, #{value4}, #{value5})
+    </insert>
+
+    <insert id="insertLogManager">
+        /**
+        관리자 행동로그 삽입
+        ActionLogMapper.xml
+        id = insertLogManager
+        */
+        INSERT INTO tb_log_manager (manager_id, log_code, result_code, gold, dia, screening, value1, value2, value3)
+        VALUES (#{managerId}, #{logCode}, #{resultCode}, #{gold}, #{dia}, #{screening}, #{value1}, #{value2}, #{value3})
+    </insert>
+
+    <insert id="insertLogGuardian">
+        /**
+        보호자 행동로그 삽입
+        ActionLogMapper.xml
+        id = insertLogGuardian
+        */
+        INSERT INTO tb_log_guardian (guardian_id, log_code, result_code, value1, value2, value3)
+        VALUES (#{guardianId}, #{logCode}, #{resultCode}, #{value1}, #{value2}, #{value3})
+    </insert>
+
+    <insert id="insertLogCode">
+        /**
+        로그 코드 삽입
+        ActionLogMapper.xml
+        id = insertLogCode
+        */
+        INSERT INTO tb_code_log (log_code, log_description)
+        VALUES (#{logCode}, #{logDescription})
+    </insert>
+</mapper>
