@@ -13,4 +13,5 @@ package com.joycog.operate.api.license.repository
  * @ 2023/08/10        yunjeong        최초 작성
  */
 interface LicenseRepository {
+    fun testSelect() : Int
 }
