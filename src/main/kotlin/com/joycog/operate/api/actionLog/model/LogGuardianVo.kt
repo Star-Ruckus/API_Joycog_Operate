@@ -1,6 +1,4 @@
-package com.emotiv.api.api_BlueEnter.api.actionLog.model
 
-import com.emotiv.api.api_BlueEnter.common.api.model.enumer.LogCode
 
 /**
  * @fileName logGuardianVo
@@ -16,7 +14,7 @@ import com.emotiv.api.api_BlueEnter.common.api.model.enumer.LogCode
  */
 data class LogGuardianVo(
     val guardianId: Int,
-    val logCode: LogCode,
+    val logCode: String,
     val resultCode: Any? = null,
     val value1: String? = null,
     val value2: String? = null,

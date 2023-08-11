@@ -1,6 +1,4 @@
-package com.emotiv.api.api_BlueEnter.api.actionLog.model
 
-import com.emotiv.api.api_BlueEnter.common.api.model.enumer.LogCode
 import io.swagger.annotations.ApiModel
 import io.swagger.annotations.ApiModelProperty
 import javax.validation.constraints.NotBlank
@@ -29,7 +27,7 @@ data class LogManagerVo(
 
     @field:NotBlank(message = "logCode 데이터는 null 일 수 없습니다.")
     @ApiModelProperty(value = "로그 코드", example = "C10001", required = true)
-    val logCode: LogCode?,
+    val logCode: String?,
 
     @ApiModelProperty(value = "결과 코드", example = "200", required = false)
     val resultCode: Any? = null,

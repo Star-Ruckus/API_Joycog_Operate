@@ -1,7 +1,7 @@
 package com.emotiv.api.api_BlueEnter.api.actionLog.model
 
 /**
- * @fileName ㅣㅐㅎ
+ * @fileName LogCodeEntity
  * @author yunjeong
  * @since  2023/08/01
  * @version 1.0

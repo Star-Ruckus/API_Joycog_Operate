@@ -1,5 +1,10 @@
 package com.joycog.operate.common.api.repository
 
+import LogAdminVo
+import LogAnonymousVo
+import LogChildVo
+import LogGuardianVo
+import LogManagerVo
 import com.emotiv.api.api_BlueEnter.api.actionLog.model.*
 import org.apache.ibatis.annotations.Mapper
 import org.springframework.stereotype.Repository
