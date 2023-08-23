@@ -7,6 +7,7 @@ spring:
       matching-strategy: ant_path_matcher
   profiles:
     active: dev
+    include: s3
   main:
     allow-circular-references: true
     allow-bean-definition-overriding: true
@@ -21,6 +22,8 @@ spring:
       smtp.ssl.enable: true
       mail.smtp.auth: false
       mail.smtp.starttls.enable: true
+  datasource:
+    url:
 
 ## Swagger
 springfox:
@@ -28,3 +31,5 @@ springfox:
     swagger:
       v2:
         use-model-v3: false
+
+## s3 버킷 img

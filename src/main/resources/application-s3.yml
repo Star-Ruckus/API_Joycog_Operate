@@ -1,0 +1,13 @@
+## s3 버킷 img
+cloud:
+  aws:
+    s3:
+      bucket: joycog-img
+    credentials:
+      access-key: AKIAZ73C3YLQD7Y44O7B
+      secret-key: 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
+    region:
+      static: ap-northeast-2
+      auto: false
+    stack:
+      auto: false

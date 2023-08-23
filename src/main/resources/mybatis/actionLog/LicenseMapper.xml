@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.joycog.operate.api.license.repository.LicenseRepository">
+    <select id="isDuplicateKey" resultType="string">
+        /**
+        LicenseMapper.xml
+        id = isDuplicateKey
+        중복되는 라이센스 키가 없는 지 확인
+        */
+        SELECT license_key
+            FROM tb_manager_license_info
+        WHERE license_key = #{licenseKey}
+    </select>
+
+    <insert id="insertLicense">
+        /**
+        LicenseMapper.xml
+        id = insertLicense
+        라이센스 등록
+        */
+        INSERT INTO tb_manager_license_info (license_key,
+                                             agency_type,
+                                             license_name,
+                                             license_count,
+                                             license_issued_date,
+                                             license_expired_date,
+                                             agency_name,
+                                             use_yn)
+        VALUES (
+                #{licenseKey},
+                #{agencyType},
+                #{licenseName},
+                #{licenseCount},
+                #{licenseIssuedDate},
+                #{licenseExpiredDate},
+                #{agencyName},
+                #{useYn}
+               )
+    </insert>
+
+    <update id="updateLicense">
+        /**
+        LicenseMapper.xml
+        id = updateLicense
+        라이센스 수정
+        */
+        UPDATE tb_manager_license_info
+        set
+        <if test="licenseName != null">license_name = #{licenseName},</if>
+        <if test="licenseCount != null">license_count = #{licenseCount},</if>
+        <if test="licenseIssuedDate != null">license_issued_date = #{licenseIssuedDate},</if>
+        <if test="licenseExpiredDate != null">license_expired_date = #{licenseExpiredDate},</if>
+        <if test="agencyName != null">agency_name = #{agencyName},</if>
+        <if test="useYn != null">use_yn = #{useYn},</if>
+        edit_date = now()
+        <where>
+            <if test="licenseId != null">AND license_id = #{licenseId}</if>
+            <if test="licenseKey != null">AND license_key = #{licenseKey}</if>
+        </where>
+    </update>
+</mapper>

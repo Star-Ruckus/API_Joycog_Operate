@@ -1,5 +1,9 @@
 package com.joycog.operate.api.license.repository
 
+import com.joycog.operate.api.license.model.entity.LicenseEntity
+import org.apache.ibatis.annotations.Mapper
+import org.springframework.stereotype.Repository
+
 /**
  * @fileName LicenseRepository
  * @author yunjeong
@@ -12,6 +16,12 @@ package com.joycog.operate.api.license.repository
  * @ -----------   ------------   -------------------------------
  * @ 2023/08/10        yunjeong        최초 작성
  */
+@Mapper
+@Repository
 interface LicenseRepository {
-    fun testSelect() : Int
+    fun insertLicense(licenseEntity: LicenseEntity) : Int
+
+    fun updateLicense(licenseEntity: LicenseEntity) : Int
+
+    fun isDuplicateKey(licenseKey: String): String?
 }
